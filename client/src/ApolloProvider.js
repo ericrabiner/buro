@@ -6,13 +6,8 @@ import { createHttpLink } from "apollo-link-http";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { setContext } from "apollo-link-context";
 
-console.log(process.env.port);
-
 const httpLink = createHttpLink({
-  uri:
-    process.env.NODE_ENV === "production"
-      ? `http://34.235.169.86:8080`
-      : "http://localhost:8080",
+  uri: `http://34.235.169.86:8080`,
 });
 
 const authLink = setContext(() => {

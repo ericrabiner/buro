@@ -3,3 +3,4 @@ nodemon.json
 public
 .env
 buro.pem
+deploy_commands.txt
