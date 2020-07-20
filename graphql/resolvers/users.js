@@ -15,7 +15,7 @@ function generateToken(user) {
       email: user.email,
       username: user.username,
     },
-    JWT_TOKEN_KEY,
+    process.env.JWT_TOKEN_KEY,
     { expiresIn: "1h" }
   );
 }
@@ -32,14 +32,14 @@ module.exports = {
       const user = await User.findOne({ username });
 
       if (!user) {
-        errors.general = "User not found";
-        throw new UserInputError("User not found", { errors });
+        errors.general = "Incorrect username or password.";
+        throw new UserInputError("Incorrect username or password.", { errors });
       }
 
       const match = await bcrypt.compare(password, user.password);
       if (!match) {
-        errors.general = "Wrong crendetials";
-        throw new UserInputError("Wrong crendetials", { errors });
+        errors.general = "Incorrect username or password.";
+        throw new UserInputError("Incorrect username or password.", { errors });
       }
 
       const token = generateToken(user);
