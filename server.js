@@ -14,6 +14,9 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: ({ req }) => ({ req, pubsub }),
+  engine: {
+    reportSchema: true,
+  },
 });
 
 mongoose

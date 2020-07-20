@@ -11,7 +11,7 @@ console.log(process.env.port);
 const httpLink = createHttpLink({
   uri:
     process.env.NODE_ENV === "production"
-      ? `https://limitless-anchorage-67376.herokuapp.com:8080`
+      ? `http://34.235.169.86:8080`
       : "http://localhost:8080",
 });
 
